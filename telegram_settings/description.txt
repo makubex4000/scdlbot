@@ -1,1 +1,1 @@
-Download MP3 rips of tracks/sets from SoundCloud, Bandcamp, YouTube with tags and artwork.
+從 SoundCloud、Bandcamp、YouTube 下載包含標籤和插圖的 MP3 曲目/集。
