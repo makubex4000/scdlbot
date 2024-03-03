@@ -1,4 +1,4 @@
-dl - + <links> required! download now
-link - + <links> required! get direct url
-settings - change default mode and spam
-help - show the help message
+dl - + <links> required! 直接下載
+link - + <links> required! 取得直接網址
+settings - 更改預設模式和垃圾郵件
+help - 顯示幫助訊息
