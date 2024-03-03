@@ -1,28 +1,16 @@
-Hi! I download and send audios from videos/tracks/sets/albums in *MP3* with tags and artwork. Files over 50 MB are split into parts due to Telegram Bot API limit.
+你好！ 我從 *MP3* 格式的影片/曲目/集/專輯中下載並發送帶有標籤和缩圖的音訊。 由於 Telegram Bot API 限制，超過 50 MB 的檔案將被分成多個部分。
 
-*Usage:*
-_Send or forward_ a text message containing links and I will:
-• In *Download* mode: download every link I support (or use `/dl <links>`)
-• In *Links* mode: show direct download URLs for every link (or use `/link <links>`)
-• In *Ask* mode: scan for supported links and ask you to choose download or links
-• Use /settings to select working mode for messages *without command*.
-• Use /settings to toggle *Captions*.
-• [Privacy mode](https://core.telegram.org/bots#privacy-mode) is _disabled_, so I scan every group message.
-• Supported links and resources:
-*SoundCloud*: tracks/playlists/pages with private widgets
-*Bandcamp*: tracks/albums/custom links
-*YouTube*: videos/playlists/_not_ lives
-*Yandex.Music*: tracks/albums
-*Mixcloud, Vimeo and* [almost everything from this list](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md), but no VK music
-
-*Example message:*
-`Hey, check this out! https://m.soundcloud.com/falling-ethics/jk-flesh-static-demon-fexelvn004 and also https://shitmat.bandcamp.com/track/amen-babylon-2016-mix and youtu.be/Mdzy5RKn434`
-
-👨🏻‍💻 *Developed by @gpchelkin*:
-[🐝 Channel](https://t.me/ggpchelkin) | [🐝 Homepage](https://pchelk.in)
-[🌟 Star me on GitHub!](https://github.com/gpchelkin/scdlbot) | [⚠️ Report an issue](https://github.com/gpchelkin/scdlbot/issues)
-💵 Support development:
-[PayPal](http://paypal.me/ggpchelkin/200) | [Ko-fi](https://ko-fi.com/gpchelkin) | [Tinkoff](https://www.tinkoff.ru/sl/Acd7Jamf4YM) | [Yandex.Money](http://money.yandex.ru/to/41001421333857/200)
-
-👩🏻‍🎨 Logo by `@lowonbudget` | [🖼️ Behance](https://www.behance.net/lowonbudget)
-🎶 Inspired by `@electrocircle` | [⚡⚫ Channel](https://t.me/Eklight)
+*用法：*
+_發送或轉發_包含連結的短信，我將：
+• 在*下載*模式下：下載我支援的每個連結（或使用「/dl <links>」）
+• 在*連結*模式下：顯示每個連結的直接下載 URL（或使用「/link <links>」）
+• 在*詢問*模式下：掃描支援的連結並要求您選擇下載或鏈接
+• 使用/settings 選擇訊息的工作模式*無需指令*。
+• 使用/settings 切換*字幕*。
+• [隱私模式](https://core.telegram.org/bots#privacy-mode) 已_停用_，因此我掃描每個群組訊息。
+• 支援的連結和資源：
+*SoundCloud*：帶有私人小部件的曲目/播放清單/頁面
+*Bandcamp*：曲目/專輯/自訂鏈接
+*YouTube*：影片/播放清單
+*Yandex.Music*：曲目/專輯
+*Mixcloud、Vimeo 和* [此列表中的幾乎所有內容](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)，但沒有 VK 音樂
