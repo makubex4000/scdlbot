@@ -1,1 +1,1 @@
-*Sorry*, your download was taking too much time (more than {} minutes), so I needed to stop it. You can get direct links and download for yourself with a `/link <links>` command.
+*抱歉*，您的下載花了太多時間（超過 {} 分鐘），因此我需要停止它。 您可以使用“/link <links>”命令取得直接連結並自行下載。
