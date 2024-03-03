@@ -1,6 +1,6 @@
-Select working mode for messages with links, but *without command specified*.
-Sane defaults are *Download* for *private chats* and *Ask* for group chats.
+選擇帶有連結的訊息的工作模式，但*未指定命令*。
+Sane 預設值是「私人聊天」的「下載」和群組聊天的「詢問」。
 
-Enable *Captions* to send audios *with source captions* and *as replies*.
+啟用*字幕*以發送*帶有來源字幕*和*作為回應*的音訊。
 
-Enable *Unknown sites* to allow checking unknown sites (will reset in a day).
+啟用*未知網站*以允許檢查未知網站（將在一天內重設）。
