@@ -1183,7 +1183,7 @@ def download_url_and_send(
                         bot.send_message(
                             chat_id=chat_id,
                             reply_to_message_id=reply_to_message_id,
-                            text="*Sorry*, not enough memory to convert file `{}`..".format(file_name),
+                            text="*抱歉*，沒有足夠的記憶體來轉換文件 `{}`..".format(file_name),
                             parse_mode="Markdown",
                         )
                     )
@@ -1193,7 +1193,7 @@ def download_url_and_send(
                         bot.send_message(
                             chat_id=chat_id,
                             reply_to_message_id=reply_to_message_id,
-                            text="*Sorry*, not enough memory to convert file `{}`..".format(file_name),
+                            text="*抱歉*，沒有足夠的記憶體來轉換文件`{}`..".format(file_name),
                             parse_mode="Markdown",
                         )
                     )
@@ -1213,7 +1213,7 @@ def download_url_and_send(
                     else:
                         source = url_obj.host.replace(".com", "").replace(".ru", "").replace("www.", "").replace("m.", "")
                     # TODO fix youtube id in []
-                    caption = url, addition.replace("_", r"\_"))
+                    caption = url, addition.replace("_", r"\_")
                     if add_description:
                         caption += "\n\n" + add_description
                     # logger.debug(caption)
