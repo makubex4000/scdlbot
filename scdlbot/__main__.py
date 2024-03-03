@@ -340,7 +340,7 @@ async def start_help_commands_callback(update: Update, context: ContextTypes.DEF
     # Determine the original command:
     entities = message.parse_entities(types=[MessageEntity.BOT_COMMAND])
     for entity_value in entities.values():
-        command_name = entity_value.replace("/", "").replace(f"@{context.bot.username}", "")
+        command_name = entity_value.replace("/", "")
         break
     logger.debug(command_name)
     BOT_REQUESTS.labels(type=command_name, chat_type=chat_type, mode="None").inc()
@@ -388,7 +388,7 @@ async def dl_link_commands_and_messages_callback(update: Update, context: Contex
         # Try to determine action from command:
         action = None
         for entity_value in command_entities.values():
-            action = entity_value.replace("/", "").replace("@{}".format(context.bot.username), "")
+            action = entity_value.replace("/", "")
             break
     # If no command then it is just a message and use message action from settings:
     if not action:
