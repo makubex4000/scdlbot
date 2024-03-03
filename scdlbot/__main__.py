@@ -1213,7 +1213,7 @@ def download_url_and_send(
                     else:
                         source = url_obj.host.replace(".com", "").replace(".ru", "").replace("www.", "").replace("m.", "")
                     # TODO fix youtube id in []
-                    caption = f'🎧  <b>標題 : </b> <a href="{link}">{title}</a>\n⏳ <b>歌曲時間 : </b> <code>{duration}</code>'
+                    caption = "[{}]({}){}".format(source, url, addition.replace("_", r"\_"))
                     if add_description:
                         caption += "\n\n" + add_description
                     # logger.debug(caption)
