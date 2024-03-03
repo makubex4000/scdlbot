@@ -275,7 +275,7 @@ def get_link_text(urls):
                     else:
                         content_type = "Video"
                 link_text += "• {} #{} [Direct Link]({})\n".format(content_type, str(idx + 1), direct_url)
-    link_text += "\n*Note:* Final download URLs are only guaranteed to work on the same machine/IP where extracted"
+    link_text += "\n*注意：* 最終下載 URL 僅保證在提取的相同電腦/IP 上有效"
     return link_text
 
 
@@ -370,7 +370,7 @@ async def dl_link_commands_and_messages_callback(update: Update, context: Contex
     chat_id = update.effective_chat.id
     chat_type = update.effective_chat.type
     if not chat_allowed(chat_id):
-        await context.bot.send_message(chat_id=chat_id, text="This command isn't allowed in this chat.")
+        await context.bot.send_message(chat_id=chat_id, text="此聊天中不允許使用此命令。")
         return
     init_chat_data(
         chat_data=context.chat_data,
@@ -446,9 +446,9 @@ async def dl_link_commands_and_messages_callback(update: Update, context: Contex
             timeout=CHECK_URL_TIMEOUT * 10,
         )
     except asyncio.TimeoutError:
-        logger.debug("get_direct_urls_dict took too much time and was dropped (but still running)")
+        logger.debug("get_direct_urls_dict 花了太多時間並被丟棄（但仍在運行）")
     except Exception:
-        logger.debug("get_direct_urls_dict failed for some unhandled reason")
+        logger.debug("get_direct_urls_dict 由於某些未處理的原因失敗")
     # pool.shutdown(wait=False, cancel_futures=True)
 
     logger.debug(f"prepare_urls: urls dict: {urls_dict}")
@@ -532,7 +532,7 @@ async def button_press_callback(update: Update, context: ContextTypes.DEFAULT_TY
     # TODO create separate callbacks by callback query data pattern
     url_message_id, button_action = update.callback_query.data.split()
     if not chat_allowed(chat_id):
-        await update.callback_query.answer(text="This command isn't allowed in this chat.")
+        await update.callback_query.answer(text="此聊天中不允許使用此命令。")
         return
     if url_message_id == "settings":
         # button on settings message:
@@ -541,7 +541,7 @@ async def button_press_callback(update: Update, context: ContextTypes.DEFAULT_TY
             # logger.debug(chat_member.status)
             if chat_member.status not in [ChatMember.OWNER, ChatMember.ADMINISTRATOR] and user_id != TG_BOT_OWNER_CHAT_ID:
                 logger.debug("settings_fail")
-                await update.callback_query.answer(text="You're not chat admin.")
+                await update.callback_query.answer(text="您不是聊天管理員。")
                 return
         command_name = f"settings_{button_action}"
         logger.debug(command_name)
@@ -563,10 +563,10 @@ async def button_press_callback(update: Update, context: ContextTypes.DEFAULT_TY
                 context.chat_data["settings"][button_action] = not current_setting
                 setting_changed = True
             if setting_changed:
-                await update.callback_query.answer(text="Settings changed")
+                await update.callback_query.answer(text="設定已更改")
                 await update.callback_query.edit_message_reply_markup(reply_markup=get_settings_inline_keyboard(context.chat_data))
             else:
-                await update.callback_query.answer(text="Settings not changed")
+                await update.callback_query.answer(text="設定未更改")
 
     elif url_message_id in context.chat_data:
         # mode is ask, we got data from button on asking message.
@@ -680,11 +680,11 @@ def get_direct_urls_dict(message, mode, proxy, source_ip, allow_unknown_sites):
             logger.info("Entity Text Link parsed: %s", url)
             urls.append(url)
         else:
-            logger.info("Entry Text Link is not valid or blacklisted: %s", url)
+            logger.info("文字連結無效或已列入黑名單: %s", url)
     # If message just some text passed (not isinstance(message, Message)):
     # all_links = find_all_links(message, default_scheme="http")
     # urls = [link for link in all_links if url_valid_and_allowed(link)]
-    logger.info(f"prepare_urls: urls list: {urls}")
+    logger.info(f"prepare_urls: 網址列表: {urls}")
 
     urls_dict = {}
     for url_item in urls:
@@ -713,7 +713,7 @@ def get_direct_urls_dict(message, mode, proxy, source_ip, allow_unknown_sites):
             url = url_item
         unknown_site = not any((site in url.host for site in DOMAINS))
         url_text = url.to_text(full_quote=True)
-        logger.debug(f"unshortened link: {url_text}")
+        logger.debug(f"未縮短的鏈接: {url_text}")
         # url_text = url_text.replace("m.soundcloud.com", "soundcloud.com")
         url_parts_num = len([part for part in url.path_parts if part])
         if mode == "link" or unknown_site:
@@ -780,7 +780,7 @@ def ydl_get_direct_urls(url, cookies_file=None, source_ip=None, proxy=None):
                 cookies_download_file.close()
                 ydl_opts["cookiefile"] = str(cookies_download_file_path)
             except:
-                logger.debug("download_url_and_send could not download cookies file")
+                logger.debug("download_url_and_send 無法下載 cookies 文件")
                 pass
         elif cookies_file.startswith("firefox:"):
             # TODO better handling of env var
