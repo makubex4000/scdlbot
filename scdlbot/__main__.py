@@ -513,9 +513,9 @@ async def dl_link_commands_and_messages_callback(update: Update, context: Contex
         else:
             url_message_id = str(reply_to_message_id)
             context.chat_data[url_message_id] = {"urls": urls_dict, "source_ip": source_ip, "proxy": proxy}
-            question = "🎶 links found, what to do?"
-            button_dl = InlineKeyboardButton(text="⬇️ Download", callback_data=" ".join([url_message_id, "dl"]))
-            button_link = InlineKeyboardButton(text="🔗️ Get links", callback_data=" ".join([url_message_id, "link"]))
+            question = "🎶找到鏈接，你想怎麼做？"
+            button_dl = InlineKeyboardButton(text="⬇️ 下載", callback_data=" ".join([url_message_id, "dl"]))
+            button_link = InlineKeyboardButton(text="🔗️ 獲取連結", callback_data=" ".join([url_message_id, "link"]))
             button_cancel = InlineKeyboardButton(text="❌", callback_data=" ".join([url_message_id, "cancel"]))
             inline_keyboard = InlineKeyboardMarkup([[button_dl, button_link, button_cancel]])
             await context.bot.send_message(chat_id=chat_id, reply_to_message_id=reply_to_message_id, reply_markup=inline_keyboard, text=question)
