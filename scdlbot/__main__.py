@@ -288,14 +288,14 @@ def get_settings_inline_keyboard(chat_data):
     emoji_toggle_enabled = "✅"
     emoji_toggle_disabled = "❌"
     emoji_close = "❌"
-    button_dl = InlineKeyboardButton(text=" ".join([emoji_radio_selected if mode == "dl" else emoji_radio_unselected, "Download"]), callback_data=" ".join(["settings", "dl"]))
-    button_link = InlineKeyboardButton(text=" ".join([emoji_radio_selected if mode == "link" else emoji_radio_unselected, "Links"]), callback_data=" ".join(["settings", "link"]))
-    button_ask = InlineKeyboardButton(text=" ".join([emoji_radio_selected if mode == "ask" else emoji_radio_unselected, "Ask"]), callback_data=" ".join(["settings", "ask"]))
-    button_flood = InlineKeyboardButton(text=" ".join([emoji_toggle_enabled if flood else emoji_toggle_disabled, "Captions"]), callback_data=" ".join(["settings", "flood"]))
+    button_dl = InlineKeyboardButton(text=" ".join([emoji_radio_selected if mode == "dl" else emoji_radio_unselected, "Download"]), callback_data=" ".join(["設定", "dl"]))
+    button_link = InlineKeyboardButton(text=" ".join([emoji_radio_selected if mode == "link" else emoji_radio_unselected, "Links"]), callback_data=" ".join(["設定", "link"]))
+    button_ask = InlineKeyboardButton(text=" ".join([emoji_radio_selected if mode == "ask" else emoji_radio_unselected, "Ask"]), callback_data=" ".join(["設定", "提問"]))
+    button_flood = InlineKeyboardButton(text=" ".join([emoji_toggle_enabled if flood else emoji_toggle_disabled, "Captions"]), callback_data=" ".join(["設定", "flood"]))
     button_allow_unknown_sites = InlineKeyboardButton(
-        text=" ".join([emoji_toggle_enabled if allow_unknown_sites else emoji_toggle_disabled, "Unknown sites"]), callback_data=" ".join(["settings", "allow_unknown_sites"])
+        text=" ".join([emoji_toggle_enabled if allow_unknown_sites else emoji_toggle_disabled, "Unknown sites"]), callback_data=" ".join(["設定", "allow_unknown_sites"])
     )
-    button_close = InlineKeyboardButton(text=" ".join([emoji_close, "Close settings"]), callback_data=" ".join(["settings", "close"]))
+    button_close = InlineKeyboardButton(text=" ".join([emoji_close, "離開設定"]), callback_data=" ".join(["設定", "離開"]))
     inline_keyboard = InlineKeyboardMarkup([[button_dl, button_link, button_ask], [button_allow_unknown_sites, button_flood], [button_close]])
     return inline_keyboard
 
@@ -513,7 +513,7 @@ async def dl_link_commands_and_messages_callback(update: Update, context: Contex
         else:
             url_message_id = str(reply_to_message_id)
             context.chat_data[url_message_id] = {"urls": urls_dict, "source_ip": source_ip, "proxy": proxy}
-            question = "🎶找到鏈接，你想怎麼做？"
+            question = "🎶你要哪種模式?"
             button_dl = InlineKeyboardButton(text="⬇️ 下載", callback_data=" ".join([url_message_id, "dl"]))
             button_link = InlineKeyboardButton(text="🔗️ 獲取連結", callback_data=" ".join([url_message_id, "link"]))
             button_cancel = InlineKeyboardButton(text="❌", callback_data=" ".join([url_message_id, "cancel"]))
