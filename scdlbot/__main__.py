@@ -275,7 +275,7 @@ def get_link_text(urls):
                     else:
                         content_type = "Video"
                 link_text += "• {} #{} [Direct Link]({})\n".format(content_type, str(idx + 1), direct_url)
-    link_text += "\n*注意：* 最終下載 URL 僅保證在提取的相同電腦/IP 上有效"
+    link_text += "\n*注意：*  URL 僅相同電腦/IP上有效"
     return link_text
 
 
@@ -680,7 +680,7 @@ def get_direct_urls_dict(message, mode, proxy, source_ip, allow_unknown_sites):
             logger.info("Entity Text Link parsed: %s", url)
             urls.append(url)
         else:
-            logger.info("文字連結無效或已列入黑名單: %s", url)
+            logger.info("連結無效或已列入黑名單: %s", url)
     # If message just some text passed (not isinstance(message, Message)):
     # all_links = find_all_links(message, default_scheme="http")
     # urls = [link for link in all_links if url_valid_and_allowed(link)]
@@ -1160,7 +1160,7 @@ def download_url_and_send(
                             bot.send_message(
                                 chat_id=chat_id,
                                 reply_to_message_id=reply_to_message_id,
-                                text="*Sorry*, downloaded file `{}` is in format I could not yet convert or send".format(file_name),
+                                text="*抱歉*，下載的文件 `{}` 的格式我無法轉換或發送".format(file_name),
                                 parse_mode="Markdown",
                             )
                         )
@@ -1170,7 +1170,7 @@ def download_url_and_send(
                         bot.send_message(
                             chat_id=chat_id,
                             reply_to_message_id=reply_to_message_id,
-                            text="*Sorry*, downloaded file `{}` is `{}` MB and it is larger than I could convert (`{} MB`)".format(
+                            text="*抱歉*，下載的檔案「{}」大小為「{}」MB，它大於我可以轉換的大小 (“{} MB”)".format(
                                 file_name, exc.file_size // 1000000, MAX_CONVERT_FILE_SIZE // 1000000
                             ),
                             parse_mode="Markdown",
@@ -1213,7 +1213,7 @@ def download_url_and_send(
                     else:
                         source = url_obj.host.replace(".com", "").replace(".ru", "").replace("www.", "").replace("m.", "")
                     # TODO fix youtube id in []
-                    caption = "[{}]({}){}".format(source, url, addition.replace("_", r"\_"))
+                    caption = "[{}]({})".format(source, url, addition.replace("_", r"\_"))
                     if add_description:
                         caption += "\n\n" + add_description
                     # logger.debug(caption)
@@ -1317,7 +1317,7 @@ def download_url_and_send(
                         bot.send_message(
                             chat_id=chat_id,
                             reply_to_message_id=reply_to_message_id,
-                            text="*Sorry*, could not send file `{}` or some of it's parts..".format(file_name),
+                            text="*抱歉*，無法傳送檔案「{}」或其某些部分...".format(file_name),
                             parse_mode="Markdown",
                         )
                     )
